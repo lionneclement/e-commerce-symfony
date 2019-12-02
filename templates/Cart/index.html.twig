@@ -14,6 +14,7 @@
                     <th>Produit</th>
                     <th>Prix</th>
                     <th>Quantité</th>
+                    <th>Conditionnement</th>
                     <th>Total</th>
                 </tr>
             </thead>
@@ -23,8 +24,8 @@
                         <td>{{item.product.name}}</td>
                         <td>{{item.product.price}}</td>
                         <td>{{item.quantity}}</td>
-                        <td>{{item.product.description}}</td>
-                        <td>{{item.product.price * item.quantity}}</td>
+                        <td>{{item.conditionnement}}Kg</td>
+                        <td>{{item.product.price * item.quantity * item.conditionnement}}</td>
                         <td>
                             <a href="{{ path("cart_remove", {'id': item.product.id})}}" class="btn btn-danger btn-sm">
                                 Delete

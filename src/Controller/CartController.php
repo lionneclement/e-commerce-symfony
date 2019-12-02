@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Service\Cart\CartService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class CartController extends AbstractController
@@ -21,9 +22,9 @@ class CartController extends AbstractController
     /**
      * @Route("/panier/add/{id}", name="cart_add")
      */
-    public function add($id, CartService $cartService)
+    public function add($id,Request $request,CartService $cartService)
     { 
-        $cartService->add($id);
+        $cartService->add($id, $request->query->get('product'));
         return $this->redirectToRoute("cart_index");
     }
     /**
