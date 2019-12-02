@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block title %}Hello ProductController!
+{% endblock %}
+  {% block body %}
+    <div class="jumbotron jumbotron-fluid text-center">
+      <div class="container">
+        <h1 class="display-4">La Brûlerie des Cévennes</h1>
+        <p class="lead">Bienvenue sur le site de la Brûlerie des Cévennes, ici vous pouvez consulter l’ensemble de nos produits et vous faire livrer directement chez vous !
+Comme ça rien, pas même les intempéries ne vous empêchera de déguster un délicieux café avec pourquoi pas un carreau de chocolat bio du Pérou !</p>
+       </div>
+     </div>
+        <div class='container text-center'>
+        <div class='row'>
+          {% for product in products %}
+            <div class='col-4 mt-4 border border-dark rounded p-2 clearfix'>
+              <h1>{{ product.name}}</h1>
+              <h3>{{ product.price}}</h3>
+              <p>{{ product.description}}</p>
+              <a href="{{ path ('cart_add' , {'id':product.id})}}" class="btn btn-success">
+                <i class="fas fa-shopping-cart mr-1"></i>
+                Ajouter
+              </a>
+              </div> 
+          {% endfor %}
+        </div>
+        </div>
+  {% endblock %}
